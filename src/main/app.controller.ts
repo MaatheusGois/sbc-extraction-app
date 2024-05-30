@@ -16,8 +16,8 @@ export class AppController {
   ) { }
 
   @IpcHandle('msg')
-  public async handleSendMsg(@Payload() msg: FormDTO): Promise<Observable<string>> {
-    const forms: FormDTO = msg//JSON.parse(msg);
+  public async handleSendMsg(@Payload() msg: string): Promise<Observable<string>> {
+    const forms: FormDTO = JSON.parse(msg);
     const results = await this.searchService.searchBy(forms)
     console.log('results:', results)
     // const { webContents } = this.mainWin
