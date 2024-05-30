@@ -137,10 +137,6 @@ export default {
                 catch (error) {
                     console.error(error)
                 }
-
-                // onReplyMsg((results) => {
-                //     console.log(`[main]: ${results}  \n`)
-                // })
             } catch (error) {
                 console.error('Error during search:', error);
             } finally {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Date -->
-    <label for="fecha1">Período</label>
+    <label for="startDateId">Período</label>
     <div class="form-group">
       <div class="row">
         <!-- Início -->
@@ -10,9 +10,9 @@
             type="text"
             placeholder="Início"
             class="form-control"
-            :id="startDateId"
-            :value="startDateValue"
-            v-model="forms.initialDate"
+            id="startDateId"
+            :value="forms.initialDate"
+            @focusout="initialDateValue"
           />
           <div class="input-group-append">
             <span class="input-group-text">
@@ -26,9 +26,9 @@
             type="text"
             placeholder="Término"
             class="form-control"
-            :id="endDateId"
-            :value="endDateValue"
-            v-model="forms.finalDate"
+            id="endDateId"
+            :value="forms.finalDate"
+            @focusout="endDateValue"
           />
           <div class="input-group-append">
             <span class="input-group-text">
@@ -47,21 +47,19 @@ export default {
     forms: {
       type: Object,
       required: true,
-    },
-    startDateId: {
-      type: String,
-      default: "fecha1",
-    },
-    endDateId: {
-      type: String,
-      default: "fecha2",
-    },
-    startDateValue: {
-      type: String
-    },
-    endDateValue: {
-      type: String
-    },
+    }
   },
+  methods: {
+    initialDateValue(event) {
+      setTimeout(() => {
+        this.forms.initialDate = event.target.value;
+      }, 100);
+    },
+    endDateValue(event) {
+      setTimeout(() => {
+        this.forms.finalDate = event.target.value;
+      }, 100);
+    }
+  }
 };
 </script>
