@@ -15,7 +15,7 @@ import { NestCrawlerModule } from 'nest-crawler';
     useFactory: async () => {
       const isDev = !app.isPackaged
       const win = new BrowserWindow({
-        width: 1100,
+        width: 1200,
         height: 900,
         autoHideMenuBar: true,
         webPreferences: {
@@ -25,7 +25,7 @@ import { NestCrawlerModule } from 'nest-crawler';
         icon: join(__dirname, 'assets/sbc-extraction.ico')
       })
 
-      win.webContents.openDevTools()
+      // win.webContents.openDevTools()
 
       win.on('closed', () => {
         win.destroy()

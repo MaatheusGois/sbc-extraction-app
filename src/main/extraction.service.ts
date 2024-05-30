@@ -141,7 +141,7 @@ export class ExtractionService {
                     },
                     publicated: {
                         selector: 'nav.cmp_breadcrumbs a',
-                        convert: (x: string) => `${x}`,
+                        convert: (x: string) => `${x.split(":")[1]}`,
                     },
                     PDF: {
                         selector: 'a.obj_galley_link',
@@ -152,7 +152,7 @@ export class ExtractionService {
                         attr: 'href'
                     },
                     type: {
-                        selector: 'nav.cmp_breadcrumbs b'
+                        selector: 'nav.cmp_breadcrumbs .current'
                     },
                     url: {
                         selector: 'nav.cmp_breadcrumbs a',
